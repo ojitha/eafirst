@@ -9,13 +9,38 @@
 		<title>department</title>
 	</h:head>
 	<body>
-		<h:form>
+		<h:form id="dept_form">
 			<p>
-				Department: 
-				<h:inputText value="#{dept.name}"/>
-				<h:commandButton value="submit" action="#{dept.addDept()}"/>
+				Department:
+				<f:ajax render="dept_name_Message">
+					<h:inputText lable="department" id="dept_name" value="#{dept.name}"/>
+					<h:message id="dept_name_Message" for="dept_name"></h:message>
+				</f:ajax>
+			</p>
+			<p>	
+				<!-- h:commandButton value="submit" action="#{dept.addDept()}"/-->
+				<h:commandButton value="submit" action="#{dept.addDept()}">
+					<f:ajax render=":all_depts"/>
+				</h:commandButton>
 			</p>
 		</h:form>
+		<span id="msg"></span>
+		<h:dataTable id="all_depts" value="#{dept.departments}" var="d">
+
+			<h:column>
+				<f:facet name="header">Dept Id</f:facet>
+				<h:outputText value="#{d.deptId}">
+				</h:outputText>
+				
+			</h:column>
+			<h:column>
+				<f:facet name="header">Department Name</f:facet>
+				<h:outputText value="#{d.name}">
+				</h:outputText>
+				
+			</h:column>
+
+		</h:dataTable>
 	</body>
 
 </html>

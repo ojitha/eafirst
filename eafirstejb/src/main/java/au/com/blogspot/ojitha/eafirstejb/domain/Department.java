@@ -9,11 +9,14 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Department
  *
  */
+@NamedQueries({
+	@NamedQuery(name="findDeptById", query="SELECT d from Department d where d.deptId = :deptId"),
+	@NamedQuery(name="getAllDepts", query="SELECT d from Department d")
+})
 @Entity
 
 public class Department implements Serializable {
 
-	   
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long deptId;
