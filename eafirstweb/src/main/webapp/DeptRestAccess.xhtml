@@ -8,26 +8,6 @@
 
 <h:head>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			function start(){
-				var data = "";
-				var methodURL = '/eafirstweb/rest/dept';
-				$.ajax({
-				type : 'GET',
-				url : methodURL,
-				success: function(data){
-					var table ='<table><tr><th>Dept Id</th><th>Dept Name</th></tr>';
-					$.each(data, function(index, item){
-						table += '<tr><td>'+item.deptId+'</td><td>'+item.name+'</td></tr>';
-					});
-					table += '</table>';
-					$('#msg').html(table)
-				},
-				error : function(e){}
-				});
-
-			}
-		</script>
 </h:head>
 <body>
 	<form action="/eafirstweb/rest/dept" id="deptForm">

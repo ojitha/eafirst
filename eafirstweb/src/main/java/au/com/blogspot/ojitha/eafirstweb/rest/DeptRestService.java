@@ -35,16 +35,6 @@ public class DeptRestService {
         
     }
 
-//    /**
-//     * Retrieves representation of an instance of Hello
-//     * @return an instance of String
-//     */
-//    @GET
-//    @Produces("text/html")
-//    public String getHtml() {
-//    	return "Hello World";
-//    }
-
     /**
      * PUT method for updating or creating an instance of Hello
      * @param content representation for the resource
